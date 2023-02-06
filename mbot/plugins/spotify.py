@@ -104,7 +104,7 @@ async def spotify_dl(_,message):
                 await copy(PForCopy,AForCopy)
             return await m.delete()
         elif item_type == "playlist":
-            tracks = client.playlist_items(playlist_id=item_id,additional_types=['track'], limit=400, offset=0, market=None)
+            tracks = client.playlist_items(playlist_id=item_id,additional_types=['track'], limit=100, offset=0, market=None)
             total_tracks = tracks.get('total')
             for track in tracks['items']:
                 song = await fetch_spotify_track(client,track.get('track').get('id'))
