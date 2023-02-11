@@ -34,12 +34,12 @@ async def start(client,message):
         InlineKeyboardButton(
             text="Bot Channel", url="https://t.me/sjoapqpqpwjbebejdjwkwjbw"),
         InlineKeyboardButton(
-            text="Developer",
+            text="repo",
             url="@riot8"),
         InlineKeyboardButton(text="Help",callback_data="helphome")
         ],
         [
-            InlineKeyboardButton(text="Group",
+            InlineKeyboardButton(text="Donate",
             url="https://t.me/+BHkQKQ3tH580MDAx"),
         ]]
     if LOG_GROUP:
@@ -49,7 +49,7 @@ async def start(client,message):
     if message.chat.type != "private" and message.chat.id not in AUTH_CHATS and message.from_user.id not in SUDO_USERS:
         return await message.reply_text("This Bot Will Not Work In Groups Unless It's Authorized.",
                     reply_markup=InlineKeyboardMarkup(reply_markup))
-    return await message.reply_text(f"Hello {message.from_user.first_name}, I'm a Simple Music Downloader Bot. I Currently Support Download from Youtube Developer By Kshitij Sharma.",
+    return await message.reply_text(f"Hello {message.from_user.first_name}, I'm a Simple Music Downloader Bot.🎧 Developer By Kshitij Sharma😍.",
                     reply_markup=InlineKeyboardMarkup(reply_markup))
 
 @Mbot.on_message(filters.command("restart") & filters.chat(OWNER_ID) & filters.private)
