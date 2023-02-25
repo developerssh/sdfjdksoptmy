@@ -75,7 +75,7 @@ async def spotify_dl(_,message):
             path = await download_songs(song,randomdir)
             thumbnail = await thumb_down(song.get('cover'),song.get('deezer_id'))
             dForChat = await message.reply_chat_action(enums.ChatAction.UPLOAD_AUDIO)
-            audio = FLAC(path)
+            audio = MP3(path)
             audio["YEAR_OF_RELEASE"] = song.get('year')
             audio["WEBSITE"] = "https://t.me/Spotify_downloa_bot"
             audio["GEEK_SCORE"] = "9"
