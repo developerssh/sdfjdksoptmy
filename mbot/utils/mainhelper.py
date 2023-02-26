@@ -132,7 +132,7 @@ def download_songs(song, download_directory='.'):
         'default_search': 'ytsearch',
         'noplaylist': True,
         "nocheckcertificate": True,
-        "outtmpl": f"{download_directory}/%(title)s.MP3",
+        "outtmpl": f"{download_directory}/%(title)s.flac",
         "quiet": True,
         "addmetadata": True,
         "prefer_ffmpeg": True,
@@ -147,7 +147,7 @@ def download_songs(song, download_directory='.'):
             video = ydl.extract_info(f"ytsearch:{query}", download=False)['entries'][0]['id']
             info = ydl.extract_info(video)
             filename = ydl.prepare_filename(info)
-            path_link = filename
+            path_link =f"{filename}.flac"
         except Exception as e:
             LOGGER.error(e)
     return path_link
