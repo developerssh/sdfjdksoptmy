@@ -75,7 +75,7 @@ async def spotify_dl(_,message):
             path = await download_songs(song,randomdir)
             thumbnail = await thumb_down(song.get('cover'),song.get('deezer_id'))
             dForChat = await message.reply_chat_action(enums.ChatAction.UPLOAD_AUDIO)
-            audio = MP3(path)
+            audio = FLAC(path)
             audio["YEAR_OF_RELEASE"] = song.get('year')
             audio["WEBSITE"] = "https://t.me/Spotify_downloa_bot"
             audio["GEEK_SCORE"] = "9"
@@ -104,7 +104,7 @@ async def spotify_dl(_,message):
                 await copy(PForCopy,AForCopy)
             return await m.delete()
         elif item_type == "playlist":
-            tracks = client.playlist_items(playlist_id=item_id,additional_types=['track'], limit=100, offset=0, market=None)
+            tracks = client.playlist_items(playlist_id=item_id,additional_types=['track'], limit=40, offset=0, market=None)
             total_tracks = tracks.get('total')
             for track in tracks['items']:
                 song = await fetch_spotify_track(client,track.get('track').get('id'))
@@ -193,11 +193,11 @@ async def spotify_dl(_,message):
 @Mbot.on_callback_query(filters.regex(r"feed"))
 async def feedback(_,query):
       await query.message.edit(f"Feedback 🏴‍☠️",
-                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Press here", url="https://t.me/dailychannelsbot?start=spotify_downloa_bot")]]))
+                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Press here", url="https://t.me/kshitij?start=spoti")]]))
 
 @Mbot.on_callback_query(filters.regex(r"bug"))                                                                                                          
 async def bug(_,query):                                                                                                                                  
       await query.message.edit(f"please report to the dev with above error occurred message")
       await sleep(2.3)
       await query.message.edit(f"Bug Report 🪲",
-                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Report to dev ", url="https://t.me/masterolic")]]))
+                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Report to dev ", url="https://t.me/riot8")]]))
